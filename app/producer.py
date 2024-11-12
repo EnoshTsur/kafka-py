@@ -28,7 +28,7 @@ def produce_fake_person():
     producer.send(
         os.environ['TOPIC_PEOPLE_BASIC_NAME'],
         value=fake_person,
-        key=fake_person['email']
+        key=fake_person['email'].encode('utf-8')
     )
     producer.flush()
 
