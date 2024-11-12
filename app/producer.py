@@ -27,7 +27,8 @@ def produce_fake_person():
     }
     producer.send(
         os.environ['TOPIC_PEOPLE_BASIC_NAME'],
-        value=fake_person
+        value=fake_person,
+        key=fake_person['email']
     )
     producer.flush()
 
@@ -35,3 +36,7 @@ def produce_fake_person():
 if __name__ == '__main__':
     produce_fake_person()
     app.run()
+
+
+
+
